@@ -86,7 +86,7 @@ private func baseOption(strictMode: Bool) -> ModeOptio {
     ])
 }
 
-func strictModeOption() -> ModeOptio {
+public func strictModeOption() -> ModeOptio {
     return baseOption(strictMode: true)
 }
 
