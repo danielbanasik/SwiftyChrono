@@ -84,10 +84,11 @@ public struct Chrono {
     }
     
     public func parseDate(text: String, refDate: Date = Date(), opt: [OptionType: Int] = [:]) -> (Date?,Date?) {
-        let results = Chrono.casual.parse(text: text, refDate: refDate, opt: opt)
+        let results =  self.parse(text: text, refDate: refDate, opt: opt)
         return (results.first?.start.date, results.first?.end?.date)
     }
     
     public static let strict = Chrono(modeOption: strictModeOption())
+    public static let casualLimited = Chrono(modeOption: casualLimitedModeOption())
     public static let casual = Chrono(modeOption: casualModeOption())
 }

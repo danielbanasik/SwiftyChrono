@@ -90,6 +90,34 @@ public func strictModeOption() -> ModeOptio {
     return baseOption(strictMode: true)
 }
 
+public func casualLimitedModeOption() -> ModeOptio {
+    var options = baseOption(strictMode: false)
+    
+    options.parsers.insert(contentsOf: [
+        // EN
+        ENCasualTimeParser(strictMode: false),
+        ENCasualDateParser(strictMode: false),
+        ENWeekdayParser(strictMode: false),
+        ENRelativeDateFormatParser(strictMode: false),
+        
+        // JP
+        JPCasualDateParser(strictMode: false),
+        
+        // ES
+        ESCasualDateParser(strictMode: false),
+        
+        // FR
+        FRCasualDateParser(strictMode: false),
+        
+        // DE
+        DECasualTimeParser(strictMode: false),
+        DECasualDateParser(strictMode: false),
+        
+        ], at: 0)
+    
+    return options
+}
+
 public func casualModeOption() -> ModeOptio {
     var options = baseOption(strictMode: false)
     
